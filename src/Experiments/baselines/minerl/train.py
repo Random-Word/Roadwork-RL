@@ -1,8 +1,3 @@
-import asyncio
-
-import uuid
-import gym
-
 from roadwork.client import ClientDapr
 from stable_baselines.common.policies import MlpPolicy
 from stable_baselines.common.evaluation import evaluate_policy
@@ -32,8 +27,8 @@ if __name__ == '__main__':
     print("[Client][Train] DONE", flush=True)
 
     # Evaluate
-    # mean_reward, std_reward = evaluate_policy(model, model.get_env()[0], n_eval_episodes=10)
-    # print(f"Mean Reward: {mean_reward}; Std Reward: {std_reward}")
-    # evaluate_actor_id = model.get_env()[0].actor_id
-    # print(f"Env ID: {evaluate_actor_id}")
+    mean_reward, std_reward = evaluate_policy(model, model.get_env()[0], n_eval_episodes=10)
+    print(f"Mean Reward: {mean_reward}; Std Reward: {std_reward}")
+    evaluate_actor_id = model.get_env()[0].actor_id
+    print(f"Env ID: {evaluate_actor_id}")
 
