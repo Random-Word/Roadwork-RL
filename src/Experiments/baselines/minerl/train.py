@@ -6,7 +6,7 @@ from stable_baselines.common.vec_env import SubprocVecEnv
 
 
 def env_create():
-    env = ClientDapr("ActorOpenAI")
+    env = ClientDapr("ActorMineRL")
     env.create("MineRLNavigateDense-v0")
     print(f"[Client] Created Sim {env.actor_id}", flush=True)
 
