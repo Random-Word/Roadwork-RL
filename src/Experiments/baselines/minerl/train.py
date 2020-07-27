@@ -12,7 +12,7 @@ from stable_baselines.common.vec_env import SubprocVecEnv
 
 def env_create():
     env = ClientDapr("ActorOpenAI")
-    env.create("CartPole-v1")
+    env.create("MineRLNavigateDense-v0")
     print(f"[Client] Created Sim {env.actor_id}", flush=True)
 
     return env
@@ -23,12 +23,12 @@ if __name__ == '__main__':
     print("TRAINING", flush=True)
     print("===============================================", flush=True)
     cpu = 8
-    env = SubprocVecEnv([ lambda: env_create() for _ in range(cpu) ])
+    env = SubprocVecEnv([lambda: env_create() for _ in range(cpu)])
 
     model = PPO2(MlpPolicy, env, verbose=1, tensorboard_log="./output/tensorboard")
     model.learn(total_timesteps=100000)
     print("[Client][Train] Saving Model", flush=True)
-    model.save("baselines_ppo_cartpole")
+    model.save("baselines_ppo_minerl")
     print("[Client][Train] DONE", flush=True)
 
     # Evaluate
