@@ -5,8 +5,8 @@
 from roadwork.server import RoadworkActorService
 
 # Import our servers
-from src.Server.OpenAI.server import ActorOpenAI
-from src.Server.MineRL.server import ActorMineRL
+from OpenAI.server import ActorOpenAI
+from MineRL.server import ActorMineRL
 
 # Start the entire service
 
