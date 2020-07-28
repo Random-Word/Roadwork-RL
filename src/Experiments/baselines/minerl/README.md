@@ -32,3 +32,16 @@ main python package, :code:`minerl`.
         sudo add-apt-repository ppa:openjdk-r/ppa
         sudo apt-get update
         sudo apt-get install openjdk-8-jdk
+        
+2. `pip install -r requirements.txt` to pick up python dependencies.
+3. Finally, run the script below to build the Malmo env locally and test that it works. If this works, you can try running train.py with dapr.
+
+```
+import minerl
+import gym
+
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
+env = gym.make('MineRLNavigateDense-v0')
+```
